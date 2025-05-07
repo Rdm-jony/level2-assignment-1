@@ -89,7 +89,7 @@
         type UserId = string | number
 ```
 ***Union Types:***
-> Interfaces cannot create union types  
+> Interfaces cannot create union types
 >
 > Type aliases can create union types  
 **Example:**
