@@ -1,7 +1,7 @@
 ### 1. What are some differences between interfaces and types in TypeScript?
 
-***8 Declaration Merging:***
-*Interfaces can have multiple declarations that are merged
+**Declaration Merging:**
+> Interfaces can have multiple declarations that are merged
 ***Example:***
 ```
        interface Animal {
