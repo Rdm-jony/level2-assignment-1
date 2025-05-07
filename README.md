@@ -90,6 +90,7 @@
 ```
 ***Union Types:***
 > Interfaces cannot create union types  
+>
 > Type aliases can create union types  
 **Example:**
 ```
