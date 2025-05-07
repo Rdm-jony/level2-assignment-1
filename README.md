@@ -83,7 +83,7 @@ Example:
 =>Interface cannot make union type
 =>Type alias can create union
 Example:
-        type userId = string | number
+    type userId = string | number
         
 
 2. What is the use of the keyof keyword in TypeScript? Provide an example.
