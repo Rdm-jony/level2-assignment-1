@@ -1,8 +1,9 @@
-1. What are some differences between interfaces and types in TypeScript?
+### 1. What are some differences between interfaces and types in TypeScript?
 
 * Declaration Merging:
 - Interfaces can have multiple declarations that are merged
 Example:
+```
        interface Animal {
            name: string
        }
@@ -14,6 +15,7 @@ Example:
            name: "jony",
            age: 20
        }
+```
 
 - Type aliases cannot have multiple declarations
 Example:
@@ -88,7 +90,7 @@ Example:
     type UserId = string | number
         
 
-2. What is the use of the keyof keyword in TypeScript? Provide an example.
+### 2. What is the use of the keyof keyword in TypeScript? Provide an example.
 The "keyof" keyword is used to create a union type from the keys of an existing type.
 Example:
         type Animal = {
@@ -98,7 +100,7 @@ Example:
 
         type AnimalKeys = keyof Animal; // "name" | "species"
 
-3. Explain the difference between any, unknown, and never types in TypeScript.
+### 3. Explain the difference between any, unknown, and never types in TypeScript.
 
 * any:
 - Can be assigned any type
@@ -127,7 +129,7 @@ Example:
         }
 
 
-4. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
+### 4. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
 Enums provide a way to define named constants, making code more readable and maintainable.
 
 * Numeric enum:
@@ -150,7 +152,7 @@ Example:
         }
 
 
-5. What is type inference in TypeScript? Why is it helpful?
+### 5. What is type inference in TypeScript? Why is it helpful?
 Type inference is TypeScript's ability to automatically determine types based on values.
 
 Benefits:
@@ -166,7 +168,7 @@ Example:
         const numbers = [1, 2, 3];  // TypeScript infers: number[]
 
 
-6. How does TypeScript help in improving code quality and project maintainability?
+### 6. How does TypeScript help in improving code quality and project maintainability?
 - Catches errors at compile time before runtime
 - Increases code productivity
 - Supports modern features like classes, interfaces, generics
@@ -176,7 +178,7 @@ Example:
 - Enhances code maintainability
 
 
-7. Provide an example of using union and intersection types in TypeScript.
+### 7. Provide an example of using union and intersection types in TypeScript.
 
 * Union Types: Allow a variable to have multiple types
 Example:
