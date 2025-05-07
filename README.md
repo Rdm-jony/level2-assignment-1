@@ -1,7 +1,7 @@
 1. What are some differences between interfaces and types in TypeScript?
 
-*Merging delclaration:-
-=>Interface can define multiple identifier
+* Declaration Merging:
+- Interfaces can have multiple declarations that are merged
 Example:
        interface Animal {
            name: string
@@ -14,45 +14,47 @@ Example:
            name: "jony",
            age: 20
        }
-=>Type alias cannot define multiple indentifier
+
+- Type aliases cannot have multiple declarations
 Example:
-        type Animal {
+        type Animal = {
             name: string
         }
-        type Animal {       //Error: Duplicate identifier 'Animal'.ts
+        type Animal = {       //Error: Duplicate identifier 'Animal'.ts
             age: number
         }
 
-*Extentends vs Intersection:-
-=>Interface use extends for combining type
+* Extends vs Intersection:
+- Interfaces use extends for combining types
 Example:
         interface Animal {
             name: string
         }
-        interface dog extends Animal {
+        interface Dog extends Animal {
             species: string
         }
 
-        const instance: dog = {
-            name: "jony",
+        const instance: Dog = {
+            name: "jony", 
             species: "dog"
         }
-=>Type alias user "&" for combining type
+
+- Type aliases use "&" for combining types
 Example:
         type Animal = {
             name: string
         }
-        type dog = Animal & {
+        type Dog = Animal & {
             species: string
         }
 
-        const instance: dog = {
+        const instance: Dog = {
             name: "jony",
             species: "dog"
         }
 
-*Primitive vs Non primitive types
-=>Interface user for only non primitive
+* Primitive vs Non-Primitive Types:
+- Interfaces can only be used for object types (non-primitive)
 Example:
         interface Animal {
             name: string,
@@ -64,7 +66,7 @@ Example:
             species: "dog"
         }
 
-=>Type alias used for both Primitive and non primitive
+- Type aliases can be used for both primitive and non-primitive types
 Example:
         type Animal = {
             name: string,
@@ -76,18 +78,18 @@ Example:
             species: "dog"
         }
 
-        type isAdmin = boolean
-        type userId = string | number
+        type IsAdmin = boolean
+        type UserId = string | number
 
-*Union type
-=>Interface cannot make union type
-=>Type alias can create union
+* Union Types:
+- Interfaces cannot create union types
+- Type aliases can create union types
 Example:
-    type userId = string | number
+    type UserId = string | number
         
 
 2. What is the use of the keyof keyword in TypeScript? Provide an example.
-=>"keyof" keyword basically use for create union type by the keys of a type
+The "keyof" keyword is used to create a union type from the keys of an existing type.
 Example:
         type Animal = {
             name: string,
@@ -97,25 +99,28 @@ Example:
         type AnimalKeys = keyof Animal; // "name" | "species"
 
 3. Explain the difference between any, unknown, and never types in TypeScript.
-=>any:
-    ->can be assign any type
-    ->less type safe
-Examlple:
+
+* any:
+- Can be assigned any type
+- Less type-safe
+Example:
         let anyValue: any = "jony"
         anyValue = 4
         anyValue = true
-=>unknown:
-    ->can be assign any type
-    ->must be type check before use
-    ->more safe than any
+
+* unknown:
+- Can be assigned any type
+- Must be type-checked before use
+- More type-safe than any
 Example:
         let unknownValue: unknown = 4;
         unknownValue = "hello"; 
         if (typeof unknownValue === "string") {
             unknownValue.toUpperCase(); // OK after type check
         }
-=>never:
-    ->use for function which is always throw error or never return
+
+* never:
+- Used for functions that never return or always throw errors
 Example:
         function throwError(): never {
             throw new Error("Error");
@@ -123,9 +128,10 @@ Example:
 
 
 4. What is the use of enums in TypeScript? Provide an example of a numeric and string enum.
-=>Enum is way to define a named constant.it help to make code readble and maintainable.
-=>Numeric enum:
-            ->its value by default increment from 0;
+Enums provide a way to define named constants, making code more readable and maintainable.
+
+* Numeric enum:
+- Values automatically increment from 0 by default
 Example:
         enum Direction {
             Up,    // 0
@@ -133,22 +139,25 @@ Example:
             Left,  // 2
             Right  // 3
         }
-=>String enum:
-            ->munst be initialize with string 
-            ->not auto incremental
+
+* String enum:
+- Must be initialized with strings
+- No automatic incrementation
 Example:
         enum Status {
-        Active = "ACTIVE",
-        Inactive = "INACTIVE"
+            Active = "ACTIVE",
+            Inactive = "INACTIVE"
         }
 
 
 5. What is type inference in TypeScript? Why is it helpful?
-=>Type inference in typescript is the ability to anutomatice type determine of a varibale based on its value.
-->Easier to code mainitain
-->Type safety
-->give erorr before runtime
-->less code to write
+Type inference is TypeScript's ability to automatically determine types based on values.
+
+Benefits:
+- Easier code maintenance
+- Type safety
+- Catches errors before runtime
+- Reduces code verbosity
 
 Example:
         const number = 42;          // TypeScript infers: number
@@ -158,38 +167,40 @@ Example:
 
 
 6. How does TypeScript help in improving code quality and project maintainability?
-->give error at compile time and before runtime
-->increase code productibity
-->support modern feature like classes,interface,generic etc.
-->it has built in documentaion
-->conver js older version easily
-->it has own data type like enum,tuple,any.unknown,never,void etc.
-->Increase code maintainability 
+- Catches errors at compile time before runtime
+- Increases code productivity
+- Supports modern features like classes, interfaces, generics
+- Provides built-in documentation
+- Easily transpiles to older JavaScript versions
+- Offers additional data types (enum, tuple, any, unknown, never, void)
+- Enhances code maintainability
 
 
 7. Provide an example of using union and intersection types in TypeScript.
-=>Union: In union type a varibale have multiple type
+
+* Union Types: Allow a variable to have multiple types
 Example:
     let id: string | number;
     id = "123";    // OK
     id = 123;      // OK
     id = true;     // Error: Type 'boolean' is not assignable
-=>Intersection: Combine multiple types into one type.
+
+* Intersection Types: Combine multiple types into one
 Example:
     type Employee = {
-       name: string;
-       id: number;
+        name: string;
+        id: number;
     }
    
     type Manager = {
-       department: string;
-       role: string;
+        department: string;
+        role: string;
     }
    
     type ManagerEmployee = Employee & Manager;
-    const instance:ManagerEmployee = {
-    name: "jony",
-    id: 1,
-    department: "HR",
-    role: "Manager"
+    const instance: ManagerEmployee = {
+        name: "jony",
+        id: 1,
+        department: "HR",
+        role: "Manager"
     }
