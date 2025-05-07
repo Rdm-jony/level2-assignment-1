@@ -17,18 +17,20 @@
        }
 ```
 
-- Type aliases cannot have multiple declarations
-Example:
+> Type aliases cannot have multiple declarations  
+***Example:***
+```
         type Animal = {
             name: string
         }
         type Animal = {       //Error: Duplicate identifier 'Animal'.ts
             age: number
         }
-
-* Extends vs Intersection:
-- Interfaces use extends for combining types
-Example:
+```
+**Extends vs Intersection:**
+> Interfaces use extends for combining types  
+***Example:***
+```
         interface Animal {
             name: string
         }
@@ -40,9 +42,10 @@ Example:
             name: "jony", 
             species: "dog"
         }
-
-- Type aliases use "&" for combining types
-Example:
+```
+> Type aliases use "&" for combining types  
+***Example:***
+```
         type Animal = {
             name: string
         }
@@ -54,10 +57,11 @@ Example:
             name: "jony",
             species: "dog"
         }
-
-* Primitive vs Non-Primitive Types:
-- Interfaces can only be used for object types (non-primitive)
-Example:
+```
+**Primitive vs Non-Primitive Types:**
+> Interfaces can only be used for object types (non-primitive)
+**Example:**
+```
         interface Animal {
             name: string,
             species: string
@@ -67,9 +71,10 @@ Example:
             name: "jony",
             species: "dog"
         }
-
-- Type aliases can be used for both primitive and non-primitive types
-Example:
+```
+> Type aliases can be used for both primitive and non-primitive types  
+**Example:**
+```
         type Animal = {
             name: string,
             species: string
@@ -82,12 +87,14 @@ Example:
 
         type IsAdmin = boolean
         type UserId = string | number
-
-* Union Types:
-- Interfaces cannot create union types
-- Type aliases can create union types
-Example:
+```
+***Union Types:***
+> Interfaces cannot create union types
+> Type aliases can create union types  
+**Example:**
+```
     type UserId = string | number
+```
         
 
 ### 2. What is the use of the keyof keyword in TypeScript? Provide an example.
